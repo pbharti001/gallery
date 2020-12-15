@@ -1,0 +1,23 @@
+<h1>Edit Album</h1>
+<%= form_with model: @user.albums.build, url: album_path, method: :patch do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %><br>
+  </div>
+
+  <div>
+    <%= form.label :image %><br>
+    <%= form.file_field :image, multiple: true %><br>
+  </div>
+
+  <div>
+    <%= form.submit 'Edit Album' %>
+  </div>
+<% end %>
+
+<%= link_to "Back", albums_path %>

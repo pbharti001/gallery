@@ -1,0 +1,27 @@
+<h1>Albums</h1>
+<% if user_signed_in? %>
+      <h3><%= link_to "New Album", new_album_path %></h3>
+<% else %>
+  <%= link_to 'Sign In to create new album.', new_user_session_path %>
+<% end %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Action</th>
+  </tr>
+  <% @albums.each do |album| %>
+    <tr>
+      <td><%= album.title %></td>
+      <td><%= album.body %></td> 
+      <td><%= link_to "Show", album_path(album) %></td>
+      <% if user_signed_in? %>
+        <td><%= link_to "Edit", edit_album_path(album) %></td> 
+        <td><%= link_to "Destroy", album_path(album),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %></td>
+      <% end %>
+    </tr>  
+  <% end %>
+</table>
