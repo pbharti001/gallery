@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: gallery_production
-  username: gallery
-  password: <%= ENV['GALLERY_DATABASE_PASSWORD'] %>
+  database: gallery_development
+  # username: gallery
+  # password: <%= ENV['GALLERY_DATABASE_PASSWORD'] %>
